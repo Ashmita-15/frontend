@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
-    name: '',
-    username:'',
-    email: '',
-    password: '',
-    confirmPassword: '',
+    name: "",
+    username: "",
+    email: "",
+    number: "",
+    password: "",
+    confirmPassword: "",
   });
 
   const handleChange = (e) => {
@@ -19,86 +20,130 @@ const RegisterPage = () => {
     console.log(formData);
   };
 
+  const handleGoogleSignIn = () => {
+    // Placeholder for Google OAuth functionality
+    console.log("Continue with Google clicked");
+  };
+
   return (
     <div className="relative min-h-screen bg-black text-white flex items-center justify-center">
-      {/* Background Video */}
-      <video
-        className="absolute top-0 left-0 w-full h-full object-cover"
-        src="/videos/video1.mp4"
-        autoPlay
-        loop
-        muted
-      />
-      {/* Content */}
-      <div className="relative bg-black p-8 rounded-lg shadow-lg w-full max-w-sm z-10">
-        <h2 className="text-2xl font-bold text-center mb-6">Register</h2>
+      {/* Form Container */}
+      <div className="relative bg-gray-800 border-white border-2 p-8 rounded-lg shadow-lg w-full max-w-md z-10">
+        <h2 className="text-3xl font-bold text-center mb-6">Register</h2>
         <form onSubmit={handleSubmit}>
+          {/* Name */}
           <div className="mb-4">
-            <label htmlFor="name" className="block text-lg mb-2">Name</label>
+            <label htmlFor="name" className="block text-lg mb-2">
+              Name
+            </label>
             <input
               type="text"
               id="name"
               name="name"
-              className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:outline-none"
+              className="w-full p-3 rounded-md bg-gray-300 text-black border-none focus:outline-none"
               value={formData.name}
               onChange={handleChange}
-              required
             />
-           </div>
-           <div className="mb-4">
-            <label htmlFor="username" className="block text-lg mb-2">Username</label>
-            <input
-              type="text"
-              id="username"
-              name="username"
-              className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:outline-none"
-              value={formData.username}
-              onChange={handleChange}
-              required
-            />
-           </div>
+          </div>
+
+          {/* Username and Phone Number in the Same Row */}
+          <div className="mb-4 grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="username" className="block text-lg mb-2">
+                Username
+              </label>
+              <input
+                type="text"
+                id="username"
+                name="username"
+                className="w-full p-3 rounded-md bg-gray-300 text-black border-none focus:outline-none"
+                value={formData.username}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="number" className="block text-lg mb-2">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="number"
+                name="number"
+                className="w-full p-3 rounded-md bg-gray-300 text-black border-none focus:outline-none"
+                value={formData.number}
+                onChange={handleChange}
+              />
+            </div>
+          </div>
+
+          {/* Email */}
           <div className="mb-4">
-            <label htmlFor="email" className="block text-lg mb-2">Email</label>
+            <label htmlFor="email" className="block text-lg mb-2">
+              Email
+            </label>
             <input
               type="email"
               id="email"
               name="email"
-              className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:outline-none"
+              className="w-full p-3 rounded-md bg-gray-300 text-black border-none focus:outline-none"
               value={formData.email}
               onChange={handleChange}
-              required
             />
           </div>
-          <div className="mb-4">
-            <label htmlFor="password" className="block text-lg mb-2">Password</label>
-            <input
-              type="password"
-              id="password"
-              name="password"
-              className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:outline-none"
-              value={formData.password}
-              onChange={handleChange}
-              required
-            />
+
+          {/* Password and Confirm Password in the Same Row */}
+          <div className="mb-6 grid grid-cols-2 gap-4">
+            <div>
+              <label htmlFor="password" className="block text-lg mb-2">
+                Password
+              </label>
+              <input
+                type="password"
+                id="password"
+                name="password"
+                className="w-full p-3 rounded-md bg-gray-300 text-black border-none focus:outline-none"
+                value={formData.password}
+                onChange={handleChange}
+              />
+            </div>
+            <div>
+              <label htmlFor="confirmPassword" className="block text-lg mb-2">
+                Confirm Password
+              </label>
+              <input
+                type="password"
+                id="confirmPassword"
+                name="confirmPassword"
+                className="w-full p-3 rounded-md bg-gray-300 text-black border-none focus:outline-none"
+                value={formData.confirmPassword}
+                onChange={handleChange}
+              />
+            </div>
           </div>
-          <div className="mb-6">
-            <label htmlFor="confirmPassword" className="block text-lg mb-2">Confirm Password</label>
-            <input
-              type="password"
-              id="confirmPassword"
-              name="confirmPassword"
-              className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:outline-none"
-              value={formData.confirmPassword}
-              onChange={handleChange}
-              required
-            />
-          </div>
-          <a
-            type="submit" href="/distractiondetection"
-            className="w-full bg-green-600 text-white px-6 py-3 rounded-md hover:bg-green-700 transition duration-300"
+
+          {/* Submit Button */}
+          <button
+            type="submit"
+            className="w-full bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300"
           >
             Register
-          </a>
+          </button>
+
+          {/* Google OAuth Button */}
+          <button
+            type="button"
+            onClick={handleGoogleSignIn}
+            className="w-full bg-red-500 text-white px-6 py-3 rounded-md hover:bg-red-600 transition duration-300 flex items-center justify-center mt-4"
+          >
+            <img
+              src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"
+              alt="Google Logo"
+              className="w-5 h-5 mr-2"
+            />
+            Continue with Google
+          </button>
+
+          {/* Login Link */}
           <div className="text-center py-4">
             <a href="/login" className="text-blue-500 hover:underline">
               Already have an account? Login

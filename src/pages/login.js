@@ -13,7 +13,7 @@ const LoginPage = () => {
   return (
     <div className="relative min-h-screen bg-black text-white flex items-center justify-center">
       {/* Background Video */}
-      <video
+     {/* <video
         className="absolute top-0 left-0 w-full h-full object-cover"
         src="/videos/video1.mp4"
         autoPlay
@@ -21,7 +21,7 @@ const LoginPage = () => {
         muted
       />
       {/* Content */}
-      <div className="relative bg-black p-8 rounded-lg shadow-lg w-full max-w-sm z-10">
+      <div className="relative bg-grey border-white border-2 p-8 rounded-lg shadow-lg w-full max-w-sm z-10">
         <h2 className="text-3xl font-bold text-center mb-6">Login</h2>
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
@@ -29,7 +29,7 @@ const LoginPage = () => {
             <input
               type="email"
               id="email"
-              className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:outline-none"
+              className="w-full p-3 rounded-md bg-gray-300 text-white border-none focus:outline-none"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
             />
@@ -39,19 +39,19 @@ const LoginPage = () => {
             <input
               type="password"
               id="password"
-              className="w-full p-3 rounded-md bg-gray-700 text-white border-none focus:outline-none"
+              className="w-full p-3 rounded-md bg-gray-300 text-white border-none focus:outline-none"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
           </div>
           <button
             type="submit"
-            className="w-full bg-blue-600 text-white px-6 py-3 rounded-md hover:bg-blue-700 transition duration-300"
+            className="w-full bg-blue-500 text-white px-6 py-3 rounded-md hover:bg-blue-600 transition duration-300"
           >
             Login
           </button>
           <div className="text-center py-4">
-            <a href="/register" className="text-blue-500 hover:underline">
+            <a href="/register" className="text--500 hover:underline">
               New user? Register
             </a>
           </div>
