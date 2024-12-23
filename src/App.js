@@ -6,6 +6,7 @@ import About from './pages/about';
 import Contact from './pages/contact';
 import RegisterPage from './pages/register';
 import LoginPage from './pages/login';
+import Dashboard from './pages/dashboard'
 
 function App() {
   return (
@@ -41,6 +42,11 @@ function App() {
                   Register
                 </Link>
               </li>
+              <li>
+                <Link to="/dashboard" className="hover:text-gray-300">
+                  Dashboard
+                </Link>
+              </li>
             </ul>
           </nav>
         </header>
@@ -54,6 +60,7 @@ function App() {
             <Route path="/contact" element={<Contact />} />
             <Route path="/register" element={<RegisterPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </div>
       </div>
